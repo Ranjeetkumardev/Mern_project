@@ -178,9 +178,9 @@ const Book = () => {
           </form>
         </section>
       )}
-      <section className="grid grid-cols-2 gap-4 absolute top-80 left-4 right-4 -z-40">
+      <section className="grid grid-cols-3 gap-4 absolute top-80 left-4 right-4 -z-40">
         {books.map((book) => (
-          <div key={book._id} className="border p-4 rounded">
+          <div key={book._id} className="border p-4 rounded bg-slate-400 ">
             <h2 className="text-xl font-bold">{book.title}</h2>
             <p>Author: {book.author}</p>
             <p>ISBN: {book.ISBN}</p>
