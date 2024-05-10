@@ -23,7 +23,7 @@ const Book = () => {
       if (editingBook) {
         await postServices.updateBook({
           ...formDataToSend,
-          _id: editingBook._id, 
+          _id: editingBook._id,
         });
         setBooks(
           books.map((book) =>
@@ -31,10 +31,25 @@ const Book = () => {
           )
         );
         setEditingBook(null);
-
+        setFormData({
+          title: "",
+          author: "",
+          ISBN: "",
+          published_at: "",
+          copies: "",
+        });
+        window.location.reload();
       } else {
         await postServices.create(formDataToSend);
-       // setBooks([...books, formDataToSend]);
+        // setBooks([...books, formDataToSend]);
+        setFormData({
+          title: "",
+          author: "",
+          ISBN: "",
+          published_at: "",
+          copies: "",
+        });
+         window.location.reload();
       }
       setFormData({
         title: "",
@@ -76,11 +91,11 @@ const Book = () => {
   }, []);
 
   return (
-    <div >
+    <div>
       <button
         onClick={() => {
-          setAddSection(true)
-          setEditingBook(null)
+          setAddSection(true);
+          setEditingBook(null);
         }}
         className="mx-8 p-2 rounded-lg border border-gray-600 bg-blue-400 mt-4 items-end"
       >
